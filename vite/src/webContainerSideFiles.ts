@@ -1,7 +1,7 @@
 import { FileSystemTree } from "@webcontainer/api";
 
 export const files:FileSystemTree = {
-  'index.ts': {
+  'index.js': {
     file: {
       contents: `
 import Fastify from 'fastify';
@@ -36,7 +36,7 @@ start();
     "nodemon": "latest"
   },
   "scripts": {
-    "start": "nodemon index.ts"
+    "start": "nodemon index.js"
   }
 }`,
     },

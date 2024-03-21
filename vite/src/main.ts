@@ -7,7 +7,7 @@ document.querySelector('#app')!.innerHTML = `
       <textarea>loading.....</textarea>
     </div>
     <div class="preview">
-      <iframe src="preview/index.html"></iframe>
+      <iframe src="preview/index.html" allow="sharedarraybuffer"></iframe>
     </div>
   </div>
 `;
@@ -33,7 +33,7 @@ window.addEventListener('load', async () => {
 
   const textareaEl = document.querySelector('textarea') as HTMLTextAreaElement;
   if (textareaEl != null) {
-    const fileNode = files['index.ts'];
+    const fileNode = files['index.js'];
     if ('file' in fileNode) {
       textareaEl.value = fileNode.file.contents as string;
       textareaEl.addEventListener('input', (_event) => {
@@ -60,5 +60,5 @@ const startDevServer = async () => {
 }
 
 const writeIndexJS = async (content:string) => {
-  await webcontainerInstance.fs.writeFile('/index.ts', content);
+  await webcontainerInstance.fs.writeFile('/index.js', content);
 };
