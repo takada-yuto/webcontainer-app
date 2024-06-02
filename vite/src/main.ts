@@ -51,8 +51,10 @@ const startDevServer = async () => {
   await webcontainerInstance.spawn('npm', ['run', 'start']);
   
   const iframeEl = document.querySelector('iframe');
+  console.log(iframeEl);
   // Wait for `server-ready` event
   webcontainerInstance.on('server-ready', (_port, url) => {
+    console.log(url);
     if(iframeEl!=null) {
       iframeEl.src = url;
     }
